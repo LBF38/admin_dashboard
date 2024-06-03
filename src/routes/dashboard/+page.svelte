@@ -13,7 +13,6 @@
 	if (data && data.users && data.users.length === 0) {
 		toast.error(`Error retrieving data: ${data.users?.length}`, { duration: 5000 });
 	}
-	console.log('page data: ', data);
 </script>
 
 <H1 class="p-4">A data table with user information</H1>

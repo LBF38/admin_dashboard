@@ -3,6 +3,7 @@
 	import * as Table from '$lib/components/ui/table';
 	import { toast } from 'svelte-sonner';
 	import type { PageData } from './$types';
+	import { H1 } from '$components/typography';
 
 	export let data: PageData;
 
@@ -14,6 +15,8 @@
 	}
 	console.log('page data: ', data);
 </script>
+
+<H1 class="p-4">A data table with user information</H1>
 
 <Table.Root>
 	<Table.Caption>
@@ -28,6 +31,7 @@
 			<Table.Head>Last Name</Table.Head>
 			<Table.Head>Email</Table.Head>
 			<Table.Head class="text-right">Phone</Table.Head>
+			<Table.Head class="text-right">Address</Table.Head>
 		</Table.Row>
 	</Table.Header>
 	<Table.Body>
@@ -39,6 +43,11 @@
 					<Table.Cell>{user.name.lastname}</Table.Cell>
 					<Table.Cell>{user.email}</Table.Cell>
 					<Table.Cell class="text-right">{user.phone}</Table.Cell>
+					<Table.Cell class="text-right">
+						{user.address.number}, {user.address.street}
+						{user.address.city}, {user.address.zipcode} ({user.address.geolocation.lat}, {user
+							.address.geolocation.long})
+					</Table.Cell>
 				</Table.Row>
 			{/each}
 		{/if}

@@ -54,7 +54,7 @@
 		<Sheet.Content side="left">
 			<Sheet.Header>
 				<Sheet.Title>Gentellela Alela!</Sheet.Title>
-				<Sheet.Description>
+				<Sheet.Description class="overflow-y-auto h-screen pb-12">
 					{#each sections as { name, lucide_icon, subsections }}
 						<Collapsible.Root class="py-4 w-full">
 							<Collapsible.Trigger class="flex gap-4 items-center w-full">

@@ -1,0 +1,32 @@
+import { number, object, string } from 'valibot';
+
+export const userSchema = object({
+	id: number(),
+	email: string(),
+	username: string(),
+	password: string(),
+	name: object({
+		firstname: string(),
+		lastname: string()
+	}),
+	address: object({
+		city: string(),
+		street: string(),
+		number: number(),
+		zipcode: string(),
+		geolocation: object({
+			lat: string(),
+			long: string()
+		})
+	}),
+	phone: string()
+});
+
+export const productSchema = object({
+	id: number(),
+	title: string(),
+	price: string(),
+	category: string(),
+	description: string(),
+	image: string()
+});

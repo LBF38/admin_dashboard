@@ -8,13 +8,13 @@
 </script>
 
 <H1 class="py-4">Products to buy !</H1>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
 	{#if data.products}
 		{#each data.products as product}
 			<Card.Root class="flex flex-col">
 				<Card.Content class="my-5 mx-auto w-full">
 					<img
-						class="rounded items-center min-h-16 h-72 mx-auto"
+						class="rounded items-center min-h-16 h-72 mx-auto object-contain"
 						src={product.image}
 						alt={product.title}
 					/>

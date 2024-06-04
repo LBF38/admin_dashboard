@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { Input } from '$components/ui/input';
 	import { Toaster } from '$components/ui/sonner';
 	import { route } from '$lib/ROUTES';
@@ -7,8 +8,34 @@
 	import * as Collapsible from '$lib/components/ui/collapsible';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Sheet from '$lib/components/ui/sheet';
+	import { userSchema } from '$lib/validators';
 	import { Box, Home, Menu, Table } from 'lucide-svelte';
+	import { toast } from 'svelte-sonner';
+	import { array, safeParse } from 'valibot';
 	import '../app.pcss';
+
+	let query = '';
+
+	async function searchUser() {
+		const res = await fetch('https://fakestoreapi.com/users');
+		const users = await res.json();
+		const validUsers = safeParse(array(userSchema), users);
+		if (!validUsers.success) {
+			console.error('Error validating data: ', validUsers);
+			return toast.error('Invalid data from API');
+		}
+
+		const user = validUsers.output.find(
+			(user) =>
+				user.name.firstname === query || user.name.lastname === query || user.username === query
+		);
+
+		if (!user) {
+			toast.error('User not found');
+			return;
+		}
+		goto(`/users/${user.id}`);
+	}
 
 	const sections: {
 		name: string;
@@ -86,8 +113,8 @@
 			</Sheet.Content>
 		</Sheet.Root>
 
-		<form action={route('/users')} method="get" class="flex mx-4 gap-4">
-			<Input type="search" name="q" placeholder="Search..." class="w-1/2" />
+		<form on:submit|preventDefault={searchUser} class="flex mx-4 gap-4">
+			<Input bind:value={query} type="search" name="q" placeholder="Search..." class="w-1/2" />
 			<Button type="submit">Search</Button>
 		</form>
 

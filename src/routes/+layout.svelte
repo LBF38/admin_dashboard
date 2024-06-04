@@ -51,7 +51,9 @@
 
 <Toaster richColors />
 <div class="flex flex-col container my-4">
-	<nav class="flex justify-between items-center">
+	<nav
+		class="flex justify-between items-center sticky top-0 w-full backdrop-blur-md bg-opacity-50 py-6 z-50"
+	>
 		<Sheet.Root>
 			<Sheet.Trigger>
 				<Menu />

@@ -1,11 +1,11 @@
 <script lang="ts">
+	import { Input } from '$components/ui/input';
 	import { Toaster } from '$components/ui/sonner';
 	import { route } from '$lib/ROUTES';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
 	import * as Collapsible from '$lib/components/ui/collapsible';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	import { Input } from '$lib/components/ui/input';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Box, Home, Menu, Table } from 'lucide-svelte';
 	import '../app.pcss';
@@ -30,20 +30,20 @@
 			name: 'Users',
 			lucide_icon: Table,
 			subsections: [
-				{ name: 'Table 1', href: route('/dashboard') },
-				{ name: 'Table 2', href: route('/dashboard') },
-				{ name: 'Table 3', href: route('/dashboard') },
-				{ name: 'Table 4', href: route('/dashboard') }
+				{ name: 'Table 1', href: route('/users') },
+				{ name: 'Table 2', href: route('/users') },
+				{ name: 'Table 3', href: route('/users') },
+				{ name: 'Table 4', href: route('/users') }
 			]
 		},
 		{
 			name: 'Products',
 			lucide_icon: Box,
 			subsections: [
-				{ name: 'Product 1', href: route('/cards') },
-				{ name: 'Product 2', href: route('/cards') },
-				{ name: 'Product 3', href: route('/cards') },
-				{ name: 'Product 4', href: route('/cards') }
+				{ name: 'Product 1', href: route('/products') },
+				{ name: 'Product 2', href: route('/products') },
+				{ name: 'Product 3', href: route('/products') },
+				{ name: 'Product 4', href: route('/products') }
 			]
 		}
 	];
@@ -86,8 +86,7 @@
 			</Sheet.Content>
 		</Sheet.Root>
 
-		<form action="/search" method="get" class="flex mx-4 gap-4">
-			<!-- TODO: finish this feature -->
+		<form action={route('/users')} method="get" class="flex mx-4 gap-4">
 			<Input type="search" name="q" placeholder="Search..." class="w-1/2" />
 			<Button type="submit">Search</Button>
 		</form>

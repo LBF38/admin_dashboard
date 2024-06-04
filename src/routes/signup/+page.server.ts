@@ -1,9 +1,9 @@
-import { inputUserSchema, userSchema } from '$lib/validators';
+import { inputUserSchema } from '$lib/validators';
+import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { valibot } from 'sveltekit-superforms/adapters';
+import { number, object, safeParse } from 'valibot';
 import type { Actions, PageServerLoad } from './$types';
-import { fail } from '@sveltejs/kit';
-import { number, object, safeParse, safeParseAsync } from 'valibot';
 
 const validateUser = valibot(inputUserSchema);
 

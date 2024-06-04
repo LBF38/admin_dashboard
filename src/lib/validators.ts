@@ -1,4 +1,4 @@
-import { email, minLength, number, object, omit, regex, string } from 'valibot';
+import { email, minLength, number, object, omit, optional, regex, string } from 'valibot';
 
 export const userSchema = object({
 	id: number(),
@@ -42,3 +42,5 @@ export const productSchema = object({
 	description: string(),
 	image: string()
 });
+
+export const searchSchema = object({ q: number() });

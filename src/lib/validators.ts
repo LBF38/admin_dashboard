@@ -1,4 +1,4 @@
-import { number, object, string } from 'valibot';
+import { number, object, omit, string } from 'valibot';
 
 export const userSchema = object({
 	id: number(),
@@ -21,6 +21,8 @@ export const userSchema = object({
 	}),
 	phone: string()
 });
+
+export const inputUserSchema = omit(userSchema, ['id']);
 
 export const productSchema = object({
 	id: number(),

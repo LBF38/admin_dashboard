@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { Toaster } from '$components/ui/sonner';
+	import { route } from '$lib/ROUTES';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
 	import * as Collapsible from '$lib/components/ui/collapsible';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { Input } from '$lib/components/ui/input';
 	import * as Sheet from '$lib/components/ui/sheet';
-	import { Home, Menu, PenBox, Table } from 'lucide-svelte';
+	import { Box, Home, Menu, Table } from 'lucide-svelte';
 	import '../app.pcss';
 
 	const sections: {
@@ -19,30 +20,30 @@
 			name: 'Home',
 			lucide_icon: Home,
 			subsections: [
-				{ name: 'Dashboard 1', href: '/' },
-				{ name: 'Dashboard 2', href: '/' },
-				{ name: 'Dashboard 3', href: '/' },
-				{ name: 'Dashboard 4', href: '/' }
+				{ name: 'Dashboard 1', href: route('/') },
+				{ name: 'Dashboard 2', href: route('/') },
+				{ name: 'Dashboard 3', href: route('/') },
+				{ name: 'Dashboard 4', href: route('/') }
 			]
 		},
 		{
-			name: 'Forms',
-			lucide_icon: PenBox,
-			subsections: [
-				{ name: 'Form 1', href: '/' },
-				{ name: 'Form 2', href: '/' },
-				{ name: 'Form 3', href: '/' },
-				{ name: 'Form 4', href: '/' }
-			]
-		},
-		{
-			name: 'Tables',
+			name: 'Users',
 			lucide_icon: Table,
 			subsections: [
-				{ name: 'Table 1', href: '/' },
-				{ name: 'Table 2', href: '/' },
-				{ name: 'Table 3', href: '/' },
-				{ name: 'Table 4', href: '/' }
+				{ name: 'Table 1', href: route('/dashboard') },
+				{ name: 'Table 2', href: route('/dashboard') },
+				{ name: 'Table 3', href: route('/dashboard') },
+				{ name: 'Table 4', href: route('/dashboard') }
+			]
+		},
+		{
+			name: 'Products',
+			lucide_icon: Box,
+			subsections: [
+				{ name: 'Product 1', href: route('/cards') },
+				{ name: 'Product 2', href: route('/cards') },
+				{ name: 'Product 3', href: route('/cards') },
+				{ name: 'Product 4', href: route('/cards') }
 			]
 		}
 	];
@@ -101,9 +102,9 @@
 				<DropdownMenu.Group>
 					<DropdownMenu.Label>My Account</DropdownMenu.Label>
 					<DropdownMenu.Separator />
-					<DropdownMenu.Item href="/settings">Settings</DropdownMenu.Item>
-					<DropdownMenu.Item href="/signup">Signup</DropdownMenu.Item>
-					<DropdownMenu.Item href="/login">Login</DropdownMenu.Item>
+					<DropdownMenu.Item href="#">Settings</DropdownMenu.Item>
+					<DropdownMenu.Item href={route('/signup')}>Signup</DropdownMenu.Item>
+					<DropdownMenu.Item href="#">Login</DropdownMenu.Item>
 				</DropdownMenu.Group>
 			</DropdownMenu.Content>
 		</DropdownMenu.Root>

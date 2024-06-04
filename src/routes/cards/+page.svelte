@@ -2,10 +2,22 @@
 	import { H1 } from '$components/typography';
 	import { Badge } from '$lib/components/ui/badge';
 	import * as Card from '$lib/components/ui/card';
+	import { toast } from 'svelte-sonner';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	if (data && data.error) {
+		toast.error(`${data.status} - ${data.error}`, { duration: 5000 });
+	}
+	if (data && data.products && data.products.length === 0) {
+		toast.error(`Error retrieving data: ${data.products?.length}`, { duration: 5000 });
+	}
 </script>
+
+{#if data.error}
+	<p class="text-destructive">{data.error}</p>
+{/if}
 
 <H1 class="py-4">Products to buy !</H1>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4">

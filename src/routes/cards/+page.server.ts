@@ -8,14 +8,15 @@ export const load: PageServerLoad = async ({ fetch }) => {
 
 	if (!res.ok) {
 		console.error('Error on fetching API: ', res.status, data);
-		return { status: res.status, error: new Error(`Could not load users`) };
+		return { status: res.status, error: `Could not load users` };
 	}
 
 	const result = safeParse(array(productSchema), data);
 	if (!result.success) {
 		console.error('Error on fetching API: ', result);
-		throw new Error(`User validation failed: ${result.issues.join(', ')}`);
+		return { error: `User validation failed` };
 	}
+
 	console.log('Success on fetching API: ', result);
 	return {
 		products: result.output

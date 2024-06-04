@@ -12,6 +12,6 @@
 		<Card.Description>Enter your information to create an account</Card.Description>
 	</Card.Header>
 	<Card.Content>
-		<SignupForm data={data.form} />
+		<SignupForm form={data.form} />
 	</Card.Content>
 </Card.Root>

@@ -49,7 +49,7 @@
 </script>
 
 <Toaster richColors />
-<div class="flex min-h-screen flex-col container my-4">
+<div class="flex flex-col container my-4">
 	<nav class="flex justify-between items-center">
 		<Sheet.Root>
 			<Sheet.Trigger>

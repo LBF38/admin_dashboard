@@ -1,28 +1,17 @@
-# create-svelte
+# Admin dashboard
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+This simple project uses the <https://fakestoreapi.com> website to get and display fake data.
+It is an admin dashboard displaying some users, products and dashboard layout.
 
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-npm run dev
+pnpm dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm dev --open
 ```
 
 ## Building
@@ -30,19 +19,20 @@ npm run dev -- --open
 To create a production version of your app:
 
 ```bash
-npm run build
+pnpm build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `pnpm preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
 ## TODO
 
-- [ ] Main dashboard layout
-- [ ] Avatar/profile w/ related links
-- [ ] Data table w/ users fake data
-- [ ] Data cards w/ products fake data
-- [ ] Signup form for user creation
-- [ ] Responsive design
-- [ ] SSR
+- [x] Main dashboard layout
+- [x] Avatar/profile w/ related links
+- [x] Data table w/ users fake data
+- [x] Data cards w/ products fake data
+- [x] Signup form for user creation
+- [x] Search bar
+- [x] Responsive design
+- [x] SSR
